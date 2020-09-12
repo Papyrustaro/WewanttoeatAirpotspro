@@ -13,7 +13,6 @@ public class SwordAttack : MonoBehaviour, IAttack
     [SerializeField] private GameObject swordObject;
     [SerializeField] private GameObject playerObject;
     [SerializeField] private float oneSlashTime = 0.5f;
-    [SerializeField] private bool isRight = true; //とりあえず
     private bool canSlash = true;
 
     public void Attack(Movement movement, Action onFinish)
@@ -22,7 +21,7 @@ public class SwordAttack : MonoBehaviour, IAttack
         this.canSlash = false;
         Vector3 defaultLocalSwordPosition = this.swordObject.transform.localPosition;
         Quaternion defaultLocalSwordRotation = this.swordObject.transform.localRotation;
-        if (this.isRight)
+        if (movement.currentBodyDirection == Movement.BodyDirection.Right)
         {
             this.swordObject.transform.localPosition = this.initSwordLocalPositionInRight;
             StartCoroutine(SantaroTransformManager.RotateInCertainTimeByAxisFromAway(this.swordObject.transform, this.playerObject.transform, -120f, this.oneSlashTime, () => {
@@ -44,6 +43,5 @@ public class SwordAttack : MonoBehaviour, IAttack
         }
         
     }
-
 
 }
