@@ -17,6 +17,7 @@ public class PlayerMovement : Movement
 
         if (!canMove)
         {
+            Stop();
             return;
         }
 
