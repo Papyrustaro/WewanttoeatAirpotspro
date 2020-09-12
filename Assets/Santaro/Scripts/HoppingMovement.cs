@@ -43,7 +43,8 @@ public class HoppingMovement : MonoBehaviour
         if(this.inputRight && !this.inputLeft)
         {
             _rigidbody2D.velocity = new Vector2(this.horizontalMoveSpeed, _rigidbody2D.velocity.y);
-        }else if(!this.inputRight && this.inputLeft)
+        }
+        else if(!this.inputRight && this.inputLeft)
         {
             _rigidbody2D.velocity = new Vector2(-this.horizontalMoveSpeed, _rigidbody2D.velocity.y);
         }
