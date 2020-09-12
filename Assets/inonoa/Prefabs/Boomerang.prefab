@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 5
-  moveSeconds: 4
+  moveSeconds: 3
 --- !u!50 &5563494223062994507
 Rigidbody2D:
   serializedVersion: 4
