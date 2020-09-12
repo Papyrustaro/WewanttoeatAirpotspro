@@ -9,10 +9,11 @@ using System;
 /// </summary>
 public class SwordAttack : MonoBehaviour, IAttack
 {
-    [SerializeField] private Vector3 initSwordLocalPositionInRight;
+    [SerializeField] private Vector3 initSwordLocalPositionInRight = new Vector3(0.2f, 0.5f, 0f);
     [SerializeField] private GameObject swordObject;
     [SerializeField] private GameObject playerObject;
-    [SerializeField] private float oneSlashTime = 0.5f;
+    [SerializeField] private float oneSlashTime = 0.2f;
+    [SerializeField] private float intervalFromFinishSlash = 0.2f;
     private bool canSlash = true;
 
     public void Attack(Movement movement, Action onFinish)
@@ -28,8 +29,8 @@ public class SwordAttack : MonoBehaviour, IAttack
                 onFinish.Invoke();
                 this.swordObject.transform.localPosition = defaultLocalSwordPosition;
                 this.swordObject.transform.localRotation = defaultLocalSwordRotation;
-                this.canSlash = true;
             }));
+            StartCoroutine(SantaroCoroutineManager.DelayMethod(this.oneSlashTime + this.intervalFromFinishSlash, () => this.canSlash = true));
         }
         else
         {
@@ -38,8 +39,8 @@ public class SwordAttack : MonoBehaviour, IAttack
                 onFinish.Invoke();
                 this.swordObject.transform.localPosition = defaultLocalSwordPosition;
                 this.swordObject.transform.localRotation = defaultLocalSwordRotation;
-                this.canSlash = true;
             }));
+            StartCoroutine(SantaroCoroutineManager.DelayMethod(this.oneSlashTime + this.intervalFromFinishSlash, () => this.canSlash = true));
         }
         
     }
