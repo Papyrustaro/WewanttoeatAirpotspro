@@ -13,13 +13,13 @@ public class InonoaTest : MonoBehaviour
     {
         print("so sorry");
         rigidBody = GetComponent<Rigidbody2D>();
-        attack = GetComponent<AttackSword>();
+        attack = GetComponent<IAttack>();
         movement = GetComponent<Movement>();
     }
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.Return))
         {
             attack.Attack(movement, () => print("働きたくないでござる"));
         }
