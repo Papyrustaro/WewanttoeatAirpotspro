@@ -6,19 +6,33 @@ using System;
 
 public class Boomerang : MonoBehaviour
 {
-    public void OnThrown(Action onCatched)
+    new Rigidbody2D rigidbody2D;
+    [SerializeField] float moveDistance = 5f;
+    [SerializeField] float moveSeconds = 4f;
+
+    void Awake()
     {
-        this.gameObject.SetActive(true);
-        DOVirtual.DelayedCall(1f, () =>
-        {
-            this.gameObject.SetActive(false);
-            onCatched.Invoke();
-        });
+        rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    void Start()
+    public void OnThrown(Action onCatched)
     {
-        
+        Sequence moveSeq = DOTween.Sequence();
+        moveSeq.Append(
+            rigidbody2D.DOMoveX(moveDistance, moveSeconds / 2)
+            .SetRelative()
+            .SetEase(Ease.OutSine)
+        );
+        moveSeq.Append(
+            rigidbody2D.DOMoveX(-moveDistance, moveSeconds / 2)
+            .SetRelative()
+            .SetEase(Ease.InSine)
+        );
+
+        moveSeq.onComplete += () =>
+        {
+            onCatched.Invoke();
+        };
     }
 
     void Update()
