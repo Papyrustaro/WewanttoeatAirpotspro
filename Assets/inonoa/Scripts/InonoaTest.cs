@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class InonoaTest : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] float speed = 1f;
+    Rigidbody2D rigidBody;
+
     void Start()
     {
         print("so sorry");
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKey(KeyCode.A))
+        {
+            rigidBody.velocity = new Vector2(-speed, rigidBody.velocity.y);
+        }
+        else if(Input.GetKey(KeyCode.D))
+        {
+            rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
+        }
+        else
+        {
+            rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
+        }
     }
 }
