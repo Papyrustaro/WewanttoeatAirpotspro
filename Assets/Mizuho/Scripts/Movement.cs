@@ -65,7 +65,7 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.transform.name=="Stage" && isJumping)
+        if(other.transform.tag=="Stage" && isJumping)
         {
             isJumping = false;
         }
