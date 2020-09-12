@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class InonoaTest : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] float speed = 1f;
+    Rigidbody2D rigidBody;
+    IAttack attack;
+    Movement movement;
+
     void Start()
     {
         print("so sorry");
+        rigidBody = GetComponent<Rigidbody2D>();
+        attack = GetComponent<IAttack>();
+        movement = GetComponent<Movement>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            attack.Attack(movement, () => print("働きたくないでござる"));
+        }
     }
 }
