@@ -3645,7 +3645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
-  moveSpeed: 1
+  moveSpeed: 6
   jumpForce: 600
   isJumping: 0
 --- !u!61 &1118624355
