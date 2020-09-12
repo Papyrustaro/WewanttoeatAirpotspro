@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class SantaroTester : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Movement _movement;
+    [SerializeField] private IAttack _attack;
+
+    private void Awake()
     {
-        
+        _movement = GetComponent<Movement>();
+        _attack = GetComponent<IAttack>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            _attack.Attack(_movement, () => { });
+        }
     }
 }
