@@ -15,21 +15,31 @@ public class PlayerMovement : Movement
     {
         base.Update();
 
+        if (!canMove)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.W))
         {
             Jump();
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            LeftMove();
         }
         if (Input.GetKey(KeyCode.S))
         {
             Guard();
         }
-        if (Input.GetKey(KeyCode.D))
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            LeftMove();
+        }
+        else if (Input.GetKey(KeyCode.D))
         {
             RightMove();
+        }
+        else
+        {
+            Stop();
         }
     }
 

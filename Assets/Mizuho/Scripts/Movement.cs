@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    
-    public float moveSpeed = 0.1f;
+    public bool canMove = true;
+    public float moveSpeed = 100f;
     public float jumpForce = 300f;
     public bool isJumping = false;
-
+    public enum BodyDirection
+    {
+        Left, Right
+    }
+    public BodyDirection currentBodyDirection { get; private set; }
 
     private Rigidbody2D rb2D;
 
@@ -21,17 +25,22 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     virtual protected void Update()
     {
-        
     }
 
     public void LeftMove()
     {
-        transform.localPosition += Vector3.left * moveSpeed;
+        //transform.localPosition += Vector3.left * moveSpeed * Time.deltaTime;
+        //rb2D.velocity += (Vector2)Vector3.left * moveSpeed * Time.deltaTime;
+        rb2D.velocity = new Vector2(Vector3.left.x * moveSpeed, rb2D.velocity.y);
+        currentBodyDirection = BodyDirection.Left;
     }
 
     public void RightMove()
     {
-        transform.localPosition += Vector3.right * moveSpeed;
+        //transform.localPosition += Vector3.right * moveSpeed * Time.deltaTime;
+        //rb2D.velocity += (Vector2)Vector3.right * moveSpeed * Time.deltaTime;
+        rb2D.velocity = new Vector2(Vector3.right.x * moveSpeed, rb2D.velocity.y);
+        currentBodyDirection = BodyDirection.Right;
     }
 
     public void Jump()
@@ -47,6 +56,11 @@ public class Movement : MonoBehaviour
     public void Guard()
     {
 
+    }
+
+    public void Stop()
+    {
+        rb2D.velocity = new Vector2(0f, rb2D.velocity.y);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
