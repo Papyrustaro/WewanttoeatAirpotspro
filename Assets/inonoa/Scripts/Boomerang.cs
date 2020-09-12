@@ -10,6 +10,9 @@ public class Boomerang : MonoBehaviour
     [SerializeField] float moveDistance = 5f;
     [SerializeField] float moveSeconds = 4f;
 
+    Action onCatched;
+    Sequence moveSeq;
+
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -17,7 +20,9 @@ public class Boomerang : MonoBehaviour
 
     public void OnThrown(Action onCatched)
     {
-        Sequence moveSeq = DOTween.Sequence();
+        this.onCatched = onCatched;
+
+        moveSeq = DOTween.Sequence();
         moveSeq.Append(
             rigidbody2D.DOMoveX(moveDistance, moveSeconds / 2)
             .SetRelative()
@@ -35,8 +40,15 @@ public class Boomerang : MonoBehaviour
         };
     }
 
-    void Update()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if(other.gameObject.tag.Contains("Player") || other.gameObject.tag.Contains("Enemy"))
+        {
+            onCatched.Invoke();
+        }
+        else
+        {
+            moveSeq.timeScale *= -1;
+        }
     }
 }
