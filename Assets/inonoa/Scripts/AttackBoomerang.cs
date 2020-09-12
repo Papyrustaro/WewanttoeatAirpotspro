@@ -20,7 +20,6 @@ public class AttackBoomerang : MonoBehaviour, IAttack
             movement.currentBodyDirection == Movement.BodyDirection.Right, 
             () =>
             {
-                Destroy(bmrg.gameObject);
                 onFinished.Invoke();
             }
         );

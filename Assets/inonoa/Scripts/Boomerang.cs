@@ -37,6 +37,7 @@ public class Boomerang : MonoBehaviour
         moveSeq.onComplete += () =>
         {
             onCatched.Invoke();
+            Destroy(gameObject);
         };
     }
 
@@ -45,6 +46,7 @@ public class Boomerang : MonoBehaviour
         if(other.gameObject.tag.Contains("Player") || other.gameObject.tag.Contains("Enemy"))
         {
             onCatched.Invoke();
+            Destroy(gameObject);
         }
         else
         {
