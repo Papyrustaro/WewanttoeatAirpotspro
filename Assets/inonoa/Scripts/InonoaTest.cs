@@ -6,26 +6,22 @@ public class InonoaTest : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
     Rigidbody2D rigidBody;
+    IAttack attack;
+    Movement movement;
 
     void Start()
     {
         print("so sorry");
         rigidBody = GetComponent<Rigidbody2D>();
+        attack = GetComponent<AttackSword>();
+        movement = GetComponent<Movement>();
     }
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.Return))
         {
-            rigidBody.velocity = new Vector2(-speed, rigidBody.velocity.y);
-        }
-        else if(Input.GetKey(KeyCode.D))
-        {
-            rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
-        }
-        else
-        {
-            rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
+            attack.Attack(movement, () => print("働きたくないでござる"));
         }
     }
 }
