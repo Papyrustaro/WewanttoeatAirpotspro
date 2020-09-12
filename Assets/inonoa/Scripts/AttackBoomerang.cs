@@ -16,7 +16,7 @@ public class AttackBoomerang : MonoBehaviour, IAttack
     public void Attack(Movement movement, Action onFinished)
     {
         Boomerang bmrg = Instantiate(boomerang, this.transform);
-        bmrg.OnThrown(() =>
+        bmrg.OnThrown(false, () =>
         {
             Destroy(bmrg.gameObject);
             onFinished.Invoke();

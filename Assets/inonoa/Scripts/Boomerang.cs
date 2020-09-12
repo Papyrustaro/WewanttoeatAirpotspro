@@ -18,18 +18,18 @@ public class Boomerang : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    public void OnThrown(Action onCatched)
+    public void OnThrown(bool toRight, Action onCatched)
     {
         this.onCatched = onCatched;
 
         moveSeq = DOTween.Sequence();
         moveSeq.Append(
-            rigidbody2D.DOMoveX(moveDistance, moveSeconds / 2)
+            rigidbody2D.DOMoveX(toRight ? moveDistance : -moveDistance, moveSeconds / 2)
             .SetRelative()
             .SetEase(Ease.OutSine)
         );
         moveSeq.Append(
-            rigidbody2D.DOMoveX(-moveDistance, moveSeconds / 2)
+            rigidbody2D.DOMoveX(toRight ? -moveDistance : moveDistance, moveSeconds / 2)
             .SetRelative()
             .SetEase(Ease.InSine)
         );
