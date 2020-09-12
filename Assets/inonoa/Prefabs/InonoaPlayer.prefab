@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8653990601457934386}
   - component: {fileID: 4485322425171047268}
   - component: {fileID: 7766734883545903609}
-  - component: {fileID: 3440525054821989583}
   - component: {fileID: 5973953253623118454}
+  - component: {fileID: 2348382004117281802}
   m_Layer: 0
   m_Name: InonoaPlayer
   m_TagString: Player
@@ -146,20 +146,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3440525054821989583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3077659911005321128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b8be6c216378e24d8aeafda2f8fdcc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boomerang: {fileID: 509374481612563475, guid: 212b9ab772ace32418ba95d5b3660f59,
-    type: 3}
 --- !u!114 &5973953253623118454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,3 +162,17 @@ MonoBehaviour:
   moveSpeed: 10
   jumpForce: 30
   isJumping: 0
+--- !u!114 &2348382004117281802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3077659911005321128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065d7bdba2312ce4db34c060cdae9317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: -6439953427386229523, guid: 212bb2db20ff276419e3f30364253efb,
+    type: 3}
