@@ -6,6 +6,7 @@ using DG.Tweening;
 public class AgressiveAI : MonoBehaviour
 {
     [SerializeField] float waitSeconds = 1;
+    [SerializeField] float jumpRate = 0.3f;
 
     PlayerCharacter player;
     Movement movement;
@@ -21,7 +22,12 @@ public class AgressiveAI : MonoBehaviour
 
     IEnumerator LoopOnce()
     {
-        float nearPlayerThreshold = 1.5f;
+        if(Random.Range(0f, 1f) < jumpRate)
+        {
+            movement.Jump();
+        }
+
+        float nearPlayerThreshold = 1.3f;
         while(Vector2.Distance(transform.position, player.transform.position) > nearPlayerThreshold)
         {
             if(transform.position.x < player.transform.position.x)

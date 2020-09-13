@@ -322,7 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   moveSpeed: 3
-  jumpForce: 10
+  jumpForce: 300
   isJumping: 0
 --- !u!114 &1009042818
 MonoBehaviour:
