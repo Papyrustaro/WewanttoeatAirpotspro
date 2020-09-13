@@ -7,6 +7,7 @@ public class HoppingAI : MonoBehaviour
     [SerializeField] float tracePlayerDelay = 1.5f;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float stopThreshold = 1;
+    float speedYMax = 7;
     Vector3 delayedPlayerPos = Vector3.zero;
     new Rigidbody2D rigidbody;
 
@@ -38,5 +39,8 @@ public class HoppingAI : MonoBehaviour
         {
             rigidbody.velocity = new Vector2(         0, rigidbody.velocity.y);
         }
+
+        if(rigidbody.velocity.y < - speedYMax) rigidbody.velocity = new Vector2(rigidbody.velocity.x, - speedYMax);
+        if(rigidbody.velocity.y >   speedYMax) rigidbody.velocity = new Vector2(rigidbody.velocity.x,   speedYMax);
     }
 }

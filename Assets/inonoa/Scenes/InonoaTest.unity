@@ -142,6 +142,7 @@ MonoBehaviour:
   tracePlayerDelay: 1
   moveSpeed: 3
   stopThreshold: 1
+  speedYMax: 7
 --- !u!1 &708490779
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +435,7 @@ MonoBehaviour:
   tracePlayerDelay: 1
   moveSpeed: 3
   stopThreshold: 1
+  speedYMax: 10
 --- !u!61 &1009042819
 BoxCollider2D:
   m_ObjectHideFlags: 0
