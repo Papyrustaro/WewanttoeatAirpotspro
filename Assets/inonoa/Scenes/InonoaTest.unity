@@ -336,10 +336,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191ddf2bd5e99094b856f711373c6c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitSeconds: 1
-  jumpRate: 0.3
+  waitSeconds: 0.5
+  jumpRate: 1
   goAwaySecondsMax: 2
-  tracePlayerDelay: 0.3
+  tracePlayerDelay: 0.5
 --- !u!61 &1009042819
 BoxCollider2D:
   m_ObjectHideFlags: 0
