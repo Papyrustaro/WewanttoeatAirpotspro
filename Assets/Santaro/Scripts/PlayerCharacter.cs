@@ -29,6 +29,14 @@ public class PlayerCharacter : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && this.haveAttacker)
+        {
+            _attacker.Attack(_movement, () => { });
+        }
+    }
+
     /// <summary>
     /// !haveAttackerのときAttackを呼ばないでも良い
     /// </summary>
