@@ -41,6 +41,7 @@ public class GameStageManager : MonoBehaviour
     /// </summary>
     public void PlayerWin()
     {
+        Debug.Log("PlayerWin");
         this.stagePrefabs[this.CurrentLevel].SetActive(false);
         this.CurrentLevel++;
         this.stagePrefabs[this.CurrentLevel].SetActive(true);
@@ -53,6 +54,7 @@ public class GameStageManager : MonoBehaviour
     /// </summary>
     public void PlayerLose()
     {
+        Debug.Log("PlayerLose");
         SceneManager.LoadScene("GameOver");
     }
     
