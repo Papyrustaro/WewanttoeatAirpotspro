@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5da2b89c17fc49845a024533bc38e323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitSeconds: 1
+  waitSeconds: 0.5
 --- !u!61 &1009042819
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -383,7 +383,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1096055031
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,7 +862,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &5958031390309533471
 SpriteRenderer:
   m_ObjectHideFlags: 0
