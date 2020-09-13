@@ -60,6 +60,7 @@ public class AgressiveAI : MonoBehaviour
     void Update()
     {
         Vector3 currentPlayerPos = player.transform.position;
-        DOVirtual.DelayedCall(tracePlayerDelay, () => playerPosDelayed = currentPlayerPos);
+        StartCoroutine(SantaroCoroutineManager.DelayMethod(
+            tracePlayerDelay, () => playerPosDelayed = currentPlayerPos));
     }
 }
