@@ -51,7 +51,8 @@ public class GameStageManager : MonoBehaviour
     /// </summary>
     public void PlayerWin()
     {
-        Debug.Log("PlayerWin");
+        SceneManager.LoadScene("DemoGameClear");
+        /*Debug.Log("PlayerWin");
         this.stagePrefabs[this.CurrentLevel].SetActive(false);
         this.CurrentLevel++;
         if(this.CurrentLevel > this.stagePrefabs.Length)
@@ -60,7 +61,7 @@ public class GameStageManager : MonoBehaviour
             return;
         }
         this.stagePrefabs[this.CurrentLevel].SetActive(true);
-        this.playerPrefab.transform.position = this.playerInitPositions[this.CurrentLevel];
+        this.playerPrefab.transform.position = this.playerInitPositions[this.CurrentLevel];*/
 
     }
 
@@ -69,7 +70,8 @@ public class GameStageManager : MonoBehaviour
     /// </summary>
     public void GameClear()
     {
-        Debug.Log("全ステージクリア(経過時間: " + this.CountAllTime);
+        SceneManager.LoadScene("DemoGameClear");
+        /*Debug.Log("全ステージクリア(経過時間: " + this.CountAllTime);*/
     }
 
     /// <summary>
@@ -77,8 +79,8 @@ public class GameStageManager : MonoBehaviour
     /// </summary>
     public void PlayerLose()
     {
-        Debug.Log("PlayerLose");
-        SceneManager.LoadScene("GameOver");
+        /*Debug.Log("PlayerLose");*/
+        SceneManager.LoadScene("DemoGameOver");
     }
     
 }
