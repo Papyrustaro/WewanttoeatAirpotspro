@@ -83,6 +83,7 @@ public class BoardMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!isPlayer) return;
 
         if (this.inputRight && !this.inputLeft)
         {
@@ -99,11 +100,16 @@ public class BoardMovement : MonoBehaviour
 
         if(this.waitJump)
         {
-            this.waitJump = false;
-            this.IsGrounded = false;
-            //_rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 10f);
-            _rigidbody2D.AddForce(Vector2.up * this.jumpForce);
+            Jump();
         }
+    }
+
+    public void Jump()
+    {
+        this.waitJump = false;
+        this.IsGrounded = false;
+        //_rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 10f);
+        _rigidbody2D.AddForce(Vector2.up * this.jumpForce);
     }
 
     public void StartFloat()
