@@ -10,6 +10,8 @@ public class HoppingAI : MonoBehaviour
     Vector3 delayedPlayerPos = Vector3.zero;
     new Rigidbody2D rigidbody;
 
+    float time = 0;
+
     void Start()
     {
         delayedPlayerPos = PlayerCharacter.Instance.transform.position;
@@ -18,6 +20,9 @@ public class HoppingAI : MonoBehaviour
 
     void Update()
     {
+        time += Time.deltaTime;
+        if(time < 0.5f) return;
+
         Vector3 currentPlayerPos = PlayerCharacter.Instance.transform.position;
         StartCoroutine(SantaroCoroutineManager.DelayMethod(tracePlayerDelay, () => delayedPlayerPos = currentPlayerPos));
 
