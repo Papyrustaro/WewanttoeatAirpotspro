@@ -21,6 +21,11 @@ public class GameStageManager : MonoBehaviour
     /// </summary>
     public int CurrentLevel { get; private set; } = 0;
 
+    /// <summary>
+    /// 一回のプレイでの、経過時間。
+    /// </summary>
+    public float CountAllTime { get; private set; } = 0f;
+
 
     public static GameStageManager Instance { get; private set; }
 
@@ -36,6 +41,11 @@ public class GameStageManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        this.CountAllTime += Time.deltaTime;
+    }
+
     /// <summary>
     /// プレイヤーが勝った時の処理。stagePrefabの切り替え。playerGameObjectの初期化
     /// </summary>
@@ -44,9 +54,22 @@ public class GameStageManager : MonoBehaviour
         Debug.Log("PlayerWin");
         this.stagePrefabs[this.CurrentLevel].SetActive(false);
         this.CurrentLevel++;
+        if(this.CurrentLevel > this.stagePrefabs.Length)
+        {
+            this.GameClear();
+            return;
+        }
         this.stagePrefabs[this.CurrentLevel].SetActive(true);
         this.playerPrefab.transform.position = this.playerInitPositions[this.CurrentLevel];
 
+    }
+
+    /// <summary>
+    /// 全てのステージをクリアしたときの処理
+    /// </summary>
+    public void GameClear()
+    {
+        Debug.Log("全ステージクリア(経過時間: " + this.CountAllTime);
     }
 
     /// <summary>
