@@ -31,8 +31,8 @@ public class Movement : MonoBehaviour
     {
         //transform.localPosition += Vector3.left * moveSpeed * Time.deltaTime;
         //rb2D.velocity += (Vector2)Vector3.left * moveSpeed * Time.deltaTime;
-        //rb2D.velocity = new Vector2(Vector3.left.x * moveSpeed, rb2D.velocity.y);
-        rb2D.velocity = new Vector2(rb2D.velocity.x +  Vector3.left.x * moveSpeed, rb2D.velocity.y);
+        rb2D.velocity = new Vector2(Vector3.left.x * moveSpeed, rb2D.velocity.y);
+        //rb2D.velocity = new Vector2(rb2D.velocity.x +  Vector3.left.x * moveSpeed, rb2D.velocity.y);
         currentBodyDirection = BodyDirection.Left;
     }
 
@@ -40,8 +40,8 @@ public class Movement : MonoBehaviour
     {
         //transform.localPosition += Vector3.right * moveSpeed * Time.deltaTime;
         //rb2D.velocity += (Vector2)Vector3.right * moveSpeed * Time.deltaTime;
-        //rb2D.velocity = new Vector2(Vector3.right.x * moveSpeed, rb2D.velocity.y);
-        rb2D.velocity = new Vector2(rb2D.velocity.x + Vector3.right.x * moveSpeed, rb2D.velocity.y);
+        rb2D.velocity = new Vector2(Vector3.right.x * moveSpeed, rb2D.velocity.y);
+        //rb2D.velocity = new Vector2(rb2D.velocity.x + Vector3.right.x * moveSpeed, rb2D.velocity.y);
         currentBodyDirection = BodyDirection.Right;
     }
 
