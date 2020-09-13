@@ -13,7 +13,7 @@ public class AgressiveAI : MonoBehaviour
     IAttack attack;
 
     Vector3 playerPosDelayed = Vector2.zero;
-    float tracePlayerDelay = 0.3f;
+    [SerializeField] float tracePlayerDelay = 0.3f;
 
     void Start()
     {
