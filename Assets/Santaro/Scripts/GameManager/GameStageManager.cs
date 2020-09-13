@@ -13,7 +13,7 @@ public class GameStageManager : MonoBehaviour
     /// <summary>
     /// 各ステージのプレイヤーの初期位置
     /// </summary>
-    [SerializeField] private Vector3[] playerInitPositions = new Vector3[12];
+    [SerializeField] private Vector3[] playerInitPositions = new Vector3[10];
     [SerializeField] private GameObject playerPrefab;
 
     /// <summary>
@@ -62,7 +62,7 @@ public class GameStageManager : MonoBehaviour
         }
         this.stagePrefabs[this.CurrentLevel].SetActive(true);
         //this.playerPrefab.transform.position = this.playerInitPositions[this.CurrentLevel];
-
+        this.playerPrefab.transform.position = new Vector3(-7f, -1.2f, 0f);
     }
 
     /// <summary>

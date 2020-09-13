@@ -14,12 +14,14 @@ public class SwordAttack : MonoBehaviour, IAttack
     [SerializeField] private GameObject playerObject;
     [SerializeField] private float oneSlashTime = 0.2f;
     [SerializeField] private float intervalFromFinishSlash = 0.2f;
+    [SerializeField] private BoxCollider2D _collider;
     private bool canSlash = true;
 
     public void Attack(Movement movement, Action onFinish)
     {
         if (!this.canSlash) return; 
         this.canSlash = false;
+        _collider.enabled = true;
         Vector3 defaultLocalSwordPosition = this.swordObject.transform.localPosition;
         Quaternion defaultLocalSwordRotation = this.swordObject.transform.localRotation;
         if (movement.currentBodyDirection == Movement.BodyDirection.Right)
@@ -30,7 +32,8 @@ public class SwordAttack : MonoBehaviour, IAttack
                 this.swordObject.transform.localPosition = defaultLocalSwordPosition;
                 this.swordObject.transform.localRotation = defaultLocalSwordRotation;
             }));
-            StartCoroutine(SantaroCoroutineManager.DelayMethod(this.oneSlashTime + this.intervalFromFinishSlash, () => this.canSlash = true));
+            StartCoroutine(SantaroCoroutineManager.DelayMethod(this.oneSlashTime, () => _collider.enabled = false));
+            StartCoroutine(SantaroCoroutineManager.DelayMethod(this.oneSlashTime + this.intervalFromFinishSlash, () =>  this.canSlash = true));
         }
         else
         {
@@ -40,6 +43,7 @@ public class SwordAttack : MonoBehaviour, IAttack
                 this.swordObject.transform.localPosition = defaultLocalSwordPosition;
                 this.swordObject.transform.localRotation = defaultLocalSwordRotation;
             }));
+            StartCoroutine(SantaroCoroutineManager.DelayMethod(this.oneSlashTime, () => _collider.enabled = false));
             StartCoroutine(SantaroCoroutineManager.DelayMethod(this.oneSlashTime + this.intervalFromFinishSlash, () => this.canSlash = true));
         }
         
