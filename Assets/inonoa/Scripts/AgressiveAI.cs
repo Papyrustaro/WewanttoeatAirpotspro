@@ -20,7 +20,7 @@ public class AgressiveAI : MonoBehaviour
         movement = GetComponent<Movement>();
         attack = GetComponent<IAttack>();
         player = PlayerCharacter.Instance;
-        StartCoroutine(LoopOnce());
+        DOVirtual.DelayedCall(0.5f, () => StartCoroutine(LoopOnce()));
         playerPosDelayed = player.transform.position;
     }
 
