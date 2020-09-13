@@ -11,7 +11,6 @@ public class InonoaTest : MonoBehaviour
 
     void Start()
     {
-        print("so sorry");
         rigidBody = GetComponent<Rigidbody2D>();
         attack = GetComponent<IAttack>();
         movement = GetComponent<Movement>();
@@ -21,7 +20,7 @@ public class InonoaTest : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Return))
         {
-            attack.Attack(movement, () => print("働きたくないでござる"));
+            attack.Attack(movement, () => {});
         }
     }
 }
