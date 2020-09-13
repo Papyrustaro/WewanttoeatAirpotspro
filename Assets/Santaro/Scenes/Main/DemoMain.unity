@@ -174,7 +174,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 889963272}
 --- !u!4 &79388722
 Transform:
   m_ObjectHideFlags: 0
@@ -467,6 +467,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 650233514341546757, guid: e0dfbc81cb440b148a1d70297602694b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 650233514423154816, guid: e0dfbc81cb440b148a1d70297602694b,
+        type: 3}
+      propertyPath: _collider
+      value: 
+      objectReference: {fileID: 2089914015}
     - target: {fileID: 8710185178924322706, guid: e0dfbc81cb440b148a1d70297602694b,
         type: 3}
       propertyPath: m_Name
@@ -603,6 +613,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4bca0e8e30cfe243acdbb63b774ac71, type: 3}
+--- !u!1 &889963272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8710185178924322706, guid: e0dfbc81cb440b148a1d70297602694b,
+    type: 3}
+  m_PrefabInstance: {fileID: 855413655}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &987152705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1277,3 +1293,9 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2.5}
   m_EdgeRadius: 0
+--- !u!61 &2089914015 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 650233514341546757, guid: e0dfbc81cb440b148a1d70297602694b,
+    type: 3}
+  m_PrefabInstance: {fileID: 855413655}
+  m_PrefabAsset: {fileID: 0}
