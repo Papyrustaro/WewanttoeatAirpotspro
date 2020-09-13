@@ -21,16 +21,20 @@ public class PlayerMovement : Movement
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            Jump();
-        }
+        
         if (Input.GetKey(KeyCode.S))
         {
             Guard();
         }
-
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Attack();
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            Jump();
+        }
+        else if (Input.GetKey(KeyCode.A))
         {
             LeftMove();
         }
