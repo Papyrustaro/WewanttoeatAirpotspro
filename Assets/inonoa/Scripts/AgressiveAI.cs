@@ -12,12 +12,16 @@ public class AgressiveAI : MonoBehaviour
     Movement movement;
     IAttack attack;
 
+    Vector3 playerPosDelayed = Vector2.zero;
+    float tracePlayerDelay = 0.3f;
+
     void Start()
     {
         movement = GetComponent<Movement>();
         attack = GetComponent<IAttack>();
         player = PlayerCharacter.Instance;
         StartCoroutine(LoopOnce());
+        playerPosDelayed = player.transform.position;
     }
 
     IEnumerator LoopOnce()
@@ -28,9 +32,9 @@ public class AgressiveAI : MonoBehaviour
         }
 
         float nearPlayerThreshold = 1.3f;
-        while(Vector2.Distance(transform.position, player.transform.position) > nearPlayerThreshold)
+        while(Vector2.Distance(transform.position, playerPosDelayed) > nearPlayerThreshold)
         {
-            if(transform.position.x < player.transform.position.x)
+            if(transform.position.x < playerPosDelayed.x)
             {
                 movement.RightMove();
             }
@@ -55,6 +59,7 @@ public class AgressiveAI : MonoBehaviour
 
     void Update()
     {
-        
+        Vector3 currentPlayerPos = player.transform.position;
+        DOVirtual.DelayedCall(tracePlayerDelay, () => playerPosDelayed = currentPlayerPos);
     }
 }
