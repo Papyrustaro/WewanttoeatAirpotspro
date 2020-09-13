@@ -8,7 +8,7 @@ public class GameStageManager : MonoBehaviour
     /// <summary>
     /// 各ステージ(プレイヤー以外のすべてのGameObject)
     /// </summary>
-    [SerializeField] private GameObject[] stagePrefabs = new GameObject[12];
+    [SerializeField] private GameObject[] stagePrefabs = new GameObject[10];
 
     /// <summary>
     /// 各ステージのプレイヤーの初期位置
@@ -51,17 +51,17 @@ public class GameStageManager : MonoBehaviour
     /// </summary>
     public void PlayerWin()
     {
-        SceneManager.LoadScene("DemoGameClear");
-        /*Debug.Log("PlayerWin");
+        //SceneManager.LoadScene("DemoGameClear");
+        Debug.Log("PlayerWin");
         this.stagePrefabs[this.CurrentLevel].SetActive(false);
         this.CurrentLevel++;
-        if(this.CurrentLevel > this.stagePrefabs.Length)
+        if(this.CurrentLevel > this.stagePrefabs.Length - 1)
         {
             this.GameClear();
             return;
         }
         this.stagePrefabs[this.CurrentLevel].SetActive(true);
-        this.playerPrefab.transform.position = this.playerInitPositions[this.CurrentLevel];*/
+        //this.playerPrefab.transform.position = this.playerInitPositions[this.CurrentLevel];
 
     }
 
