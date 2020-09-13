@@ -7,9 +7,15 @@ using UnityEngine;
 /// </summary>
 public class BoardMovement : MonoBehaviour
 {
+    [SerializeField] bool isPlayer = true;
+
     [SerializeField] private float horizontalMoveSpeed = 3f;
+    public float HorizontalMoveSpeed => horizontalMoveSpeed;
     [SerializeField] private float jumpForce = 3f;
+    public float JumpForce => jumpForce;
     [SerializeField] private float canFloatAirTime = 1f;
+    public float CanFloatAirTime => canFloatAirTime;
+
     private Rigidbody2D _rigidbody2D;
     private float defaultGravity;
     private bool inputRight = false;
@@ -31,6 +37,8 @@ public class BoardMovement : MonoBehaviour
 
     private void Update()
     {
+        if(!isPlayer) return;
+
         if (Input.GetKeyUp(KeyCode.A))
         {
             this.inputLeft = false;
@@ -75,6 +83,7 @@ public class BoardMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         if (this.inputRight && !this.inputLeft)
         {
             _rigidbody2D.velocity = new Vector2(this.horizontalMoveSpeed, _rigidbody2D.velocity.y);
